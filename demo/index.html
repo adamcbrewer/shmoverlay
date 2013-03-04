@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<title>Shmoverlay</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+	<div class="overlay">
+		<div class="overlay-inner">
+			<a class="close" data-action="close" data-remove="true" href="#!/close-overlay">x</a>
+			<h1>You can haz Smoverlay!</h1>
+		</div>
+	</div>
+
+	<script src="jquery-1.8.2.js"></script>
+	<script src="../shmoverlay.js"></script>
+	<script>
+
+		$(document).ready(function () {
+
+			var overlay = new Shmoverlay({
+				el: $('.overlay'),
+				inner: $('.overlay-inner'),
+				speed: 100,
+				'class': 'o-open'
+			});
+
+			setTimeout(function () {
+				overlay.open();
+			}, 1000);
+
+		}());
+
+	</script>
+
+</body>
+</html>
