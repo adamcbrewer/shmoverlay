@@ -13,6 +13,7 @@
 	//
 
 	args = args || {};
+	var overlay = this;
 
 
 
@@ -146,11 +147,15 @@
 	 *
 	 */
 	this._animateIn = function () {
-		this.el.fadeIn(this.speed, this._afterIn.call(this));
+		this.el.fadeIn(this.speed, function () {
+			overlay._afterIn.call(overlay);
+		});
 		return this;
 	};
 	this._animateOut = function (remove) {
-		this.el.fadeOut(this.speed, this._afterOut.call(this, remove));
+		this.el.fadeOut(this.speed, function () {
+			overlay._afterOut.call(overlay, remove);
+		});
 		return this;
 	};
 
